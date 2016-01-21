@@ -3,10 +3,10 @@ class Ability < ActiveRecord::Base
 	def initialize(user)
     user ||= User.new
 
-    #if current_user.role == "Manager"
-    #	can :manage, :all
-    #else 
-     #   can [:manage], [Activiy]
-	#end
+    if user.role == "Manager"
+    	can :manage, :all
+    else 
+        can [:manage], [Activity]
+	end
   end
 end
